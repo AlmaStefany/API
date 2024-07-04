@@ -16,5 +16,3 @@ app = FastAPI()
 async def get_website_links():
     website_content = scrap_website(('http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_01'))
     return website_content
-
-#vou mandar meu primeiro commit aqui pra testar e chamar de base
