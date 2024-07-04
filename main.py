@@ -4,7 +4,8 @@
 abrir o terminal e dar o seguinte comando: pip install fastapi
 apos a instalação, digitar no terminal: pip install uvicorn."""
 
-'''pra testar se a APi esta no ar: vc precisa abrir o terminal e digitar: uvicorn nome do arquivo (no meu caso aqui é
+'''Testar se a APi esta no ar: 
+vc precisa abrir o terminal e digitar: uvicorn nome do arquivo (no meu caso aqui é
 main) e o nome do aplicativo (no caso aqui é app) e por ultimo digitar --reload então fica: uvicorn main:app --reload'''
 
 from fastapi import FastAPI
