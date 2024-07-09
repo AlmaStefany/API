@@ -16,7 +16,7 @@ app = FastAPI()
 @app.get('/links')
 async def get_website_links():
     #faz o scraping do site especificado.
-    website_content = scrap_website('https://iseb3.com.br/respostas-em-planilhas')
+    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/download/')
 
     #verifica se há conteúdo no site
     if not website_content:
@@ -32,3 +32,5 @@ async def get_website_links():
 
     #retorna o link contraido com resposta
     return {'links': links}
+
+
