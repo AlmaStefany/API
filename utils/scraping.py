@@ -10,11 +10,11 @@ def scrap_website(url: str):
         options.add_argument('--disable-dev-shm-usage')#desabilita o uso de algumas coisas
 
         #iniciar o chrome
-        driver = webdriver.chrome(options=options)
+        driver = webdriver.Chrome(options=options)
         driver.get(url)
         page_content = driver.page_source
         driver.quit()
-
         return page_content
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
