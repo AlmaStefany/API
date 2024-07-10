@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ef60dad-caa3-48a9-90bc-f00d54ffd481" name="Changes" comment="Link 1">
+    <list default="true" id="6ef60dad-caa3-48a9-90bc-f00d54ffd481" name="Changes" comment="Link 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -93,12 +93,32 @@
       <option name="project" value="LOCAL" />
       <updated>1720558352558</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Link 2">
+      <option name="closed" value="true" />
+      <created>1720562301798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720562301798</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correção do C" />
     <MESSAGE value="Link 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Link 1" />
+    <MESSAGE value="Link 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Link 2" />
   </component>
 </project>

@@ -21,7 +21,7 @@ app = FastAPI()
 @app.get('/links/')
 async def get_website_links():
     #faz o scraping do site especificado.
-    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/download/')
+    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_01')
 
     #verifica se há conteúdo no site
     if not website_content:
