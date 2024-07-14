@@ -21,16 +21,16 @@ def find_links_at_level_one(page_content: str):
 
         # Encontrando todos os links na página
         links = soup.find_all('a', href=True)
-
+        print("---------------------------------------------------")
+        print(f"DEBUG links: {links}")
+        print("---------------------------------------------------")
         # Extraindo os URLs dos links que atendem a ambos os critérios de filtragem
         filtered_links = []
         for link in links:
             href = link['href']
             logging.info(f"Link encontrado: {href}")
-            if (href.startswith("http://iseb3.com.br/respostas-participantes") or
-                href.startswith("http://iseb3.com.br/respostas-carteira") or
-                "Respostas" in href):
-                filtered_links.append(href)
+            if href.endswith('.csv'):
+               filtered_links.append("http://vitibrasil.cnpuv.embrapa.br/download/" + href)
 
         logging.info(f"Links filtrados: {filtered_links}")
         return filtered_links

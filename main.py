@@ -1,5 +1,3 @@
-#teste pela milesima veeeeeeezzzzzz
-
 """Instalção inicial:
 abrir o terminal e dar o seguinte comando: pip install fastapi
 apos a instalação, digitar no terminal: pip install uvicorn."""
@@ -18,10 +16,11 @@ from utils.find_links import find_links_at_level_one, find_links_at_level_two
 logging.basicConfig(level=logging.INFO)
 
 app = FastAPI()
-@app.get('/links/')
+
+@app.get('/producao/')
 async def get_website_links():
     #faz o scraping do site especificado.
-    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_01')
+    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02')
 
     #verifica se há conteúdo no site
     if not website_content:
@@ -33,7 +32,28 @@ async def get_website_links():
 
     #verifica se tem link extraidos
     if not links:
+        raise HTTPException(status_code=404, detail='nenhum conteúdo encontrado AQUIUI')
+
+    #retorna o link contraido com resposta
+    return {'links': links}
+
+@app.get('/todos/')
+async def get_website_links():
+    #faz o scraping do site especificado.
+    website_content = scrap_website('http://vitibrasil.cnpuv.embrapa.br/download/')
+
+    #verifica se há conteúdo no site
+    if not website_content:
+        #lança uma exceção
         raise HTTPException(status_code=404, detail='nenhum conteúdo encontrado')
+
+    #extrai os links do conteúdo da pagina no primeiro nivel
+    links = find_links_at_level_one(website_content)
+
+    #verifica se tem link extraidos
+    if not links:
+        print(f"DEBUG {links}")
+        raise HTTPException(status_code=404, detail='nenhum conteúdo encontrado AQUIUI')
 
     #retorna o link contraido com resposta
     return {'links': links}
@@ -72,8 +92,6 @@ async def get_website_links2(link: str = Query(..., description='URL do link par
         raise HTTPException(status_code=404, detail='nenhum link encontrado')
 
     return {'links': links}
-
-
 
 
 
