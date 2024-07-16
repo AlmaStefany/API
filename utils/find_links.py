@@ -2,7 +2,7 @@ from fastapi import HTTPException  # Importa a classe HTTPException da bibliotec
 import logging  # Importa a biblioteca de logging para registrar mensagens informativas e de erro
 from bs4 import BeautifulSoup  # Importa BeautifulSoup da biblioteca bs4 para fazer o parsing do HTML
 
-def find_links_at_level_one(page_content: str):
+def find_links_at_level_one(page_content: str, aba: str):
     """
     Função para encontrar links no primeiro nível de uma página que atendam a critérios específicos.
 
@@ -21,16 +21,19 @@ def find_links_at_level_one(page_content: str):
 
         # Encontrando todos os links na página
         links = soup.find_all('a', href=True)
-        print("---------------------------------------------------")
-        print(f"DEBUG links: {links}")
-        print("---------------------------------------------------")
+
         # Extraindo os URLs dos links que atendem a ambos os critérios de filtragem
         filtered_links = []
         for link in links:
             href = link['href']
             logging.info(f"Link encontrado: {href}")
+
+            # Filtra todos os arquivos .csv do servidor
             if href.endswith('.csv'):
-               filtered_links.append("http://vitibrasil.cnpuv.embrapa.br/download/" + href)
+                # Compara com a lista da aba fornecida 
+               if href in aba:
+                    # Concateno o nome com o caminho completo do site
+                    filtered_links.append("http://vitibrasil.cnpuv.embrapa.br/download/" + href)
 
         logging.info(f"Links filtrados: {filtered_links}")
         return filtered_links
